@@ -1,0 +1,87 @@
+body {
+    background-color: #61677A;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3vh;
+    margin-left: auto;
+}
+
+header {
+    text-align: center;
+    background-color: #272829;
+    height: 20%;
+    border-radius: 10px;
+    padding: 1%;
+    width: 94%;
+    margin: 2%;
+}
+
+h1 {
+    color: #D8D9DA;
+    font-size: 5vh;
+}
+
+#header-div {
+    margin: 2%;
+}
+
+input {
+    border-radius: 5px;
+    border-color: #272829;
+    border-style: solid;
+    padding: 4px 5px;
+}
+
+#header-input{
+    width: 30%;
+    max-width: 35%;
+    padding: 1vh 1.25vh;
+    font-size: medium;
+}
+
+button {
+    border-radius: 5px;
+    padding: 4px 5px;
+    border-color: #252B48;
+    border-style: solid;
+    background-color: #252B48;
+    cursor: pointer;
+    color: #D8D9DA;
+    font-weight: bold;
+}
+
+button:hover{
+    border-color: #445069;
+    background-color: #445069;
+}
+
+#create-button{
+    padding: 1vh 1.25vh;
+    font-size: medium;
+}
+
+#checkList{
+    display: flex;
+    background-color: #272829;
+    border-radius: 10px;
+    padding: 0 1%;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1vh;
+    padding: 1px 1vh;
+}
+
+.item{
+    color: #D8D9DA;
+    font-size: large;
+    margin-left: 6%;
+}
+
+.item-check-box {
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+#list{
+
+}
