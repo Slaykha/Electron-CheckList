@@ -59,7 +59,7 @@ button:hover{
     font-size: medium;
 }
 
-#checkList{
+.checkList{
     display: flex;
     background-color: #272829;
     border-radius: 10px;
