@@ -85,3 +85,23 @@ button:hover{
 #list{
 
 }
+
+.CheckListList{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+
+.checkListListItem{
+    margin: 2%;
+    height: 25vh;
+    background-color: #272829;
+    border-radius: 10px;
+}
+
+@media screen and (min-width: 1024px){
+    .CheckListList{
+        grid-template-columns: auto auto auto auto;
+    }
+
+};
