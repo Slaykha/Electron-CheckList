@@ -2,7 +2,7 @@ const Store = require("electron-store");
 
 const store = new Store();
 
-export const createNewChekListItem = (item) => {
+export const createMainListItem = (item) => {
     store.set(item.id, item);
 };
 
@@ -12,8 +12,12 @@ export const getCheckListItems = () => {
     return items;
 };
 
-export const getListItemId = () => {
-    let size = store.size
+export const getMainListItemId = () => {
+    let size = store.size;
 
-    return (size + 1).toString()
-}
+    return (size + 1).toString();
+};
+
+export const deleteListItem = (key) => {
+    store.delete(key);
+};

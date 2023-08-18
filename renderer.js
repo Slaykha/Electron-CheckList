@@ -1,24 +1,27 @@
-import { createNewChekListItem, getCheckListItems, getListItemId } from "./storage.js";
+import { createMainListItem, deleteListItem, getCheckListItems, getMainListItemId } from "./storage.js";
 
-const createButton = document.getElementById("create-button");
+let createButton = document.getElementById("create-button");
+let mainList = document.getElementById("mainList");
+let addMainListItem = document.getElementById("addMainListItem");
 
 const listArr = [];
 
+/*
 createButton.addEventListener("click", () => {
     let input = document.getElementById("header-input");
 
     if(input.value != ""){
         let newItem = {id: getListItemId(), name: input.value, checked: false};
-         console.log(newItem)
 
         createNewChekListItem(newItem);
         listArr.push(newItem);
-        addNewItemToDOM(newItem);
+        addNewListItemToDOM(newItem);
         input.value = "";
     }
 });
+*/
 
-const addNewItemToDOM = (item) => {
+const addNewListItemToDOM = (item) => {
     let listDiv = document.createElement("div");
     let itemName = document.createElement("p");
     let itemCheckBox = document.createElement("input");
@@ -40,6 +43,15 @@ const addNewItemToDOM = (item) => {
     document.getElementById("list").appendChild(listDiv);
 };
 
+const addNewMainListItemToDOM = (item) => {
+    console.log(item)
+    let mainListItem = document.createElement("div");
+    mainListItem.className = "mainListItem";
+    mainListItem.innerText = item.text;
+
+    mainList.appendChild(mainListItem);
+}
+
 document.body.addEventListener( "click", event => {
     let idSplit = event.target.id.split("-");
     if(idSplit[0] == "checkBox") {
@@ -55,9 +67,20 @@ document.body.addEventListener( "click", event => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
+    mainList = document.getElementById("mainList");
+    addMainListItem = document.getElementById("addMainListItem");
+
+    addMainListItem.addEventListener("click", () => {
+        let newMainItem = {id: getMainListItemId(), text: "text", checkList:{}};
+    
+        createMainListItem(newMainItem);
+        addNewMainListItemToDOM(newMainItem);
+    });
+
     let items = getCheckListItems();
 
     for (let key in items) {
-        addNewItemToDOM(items[key]);
+        addNewMainListItemToDOM(items[key]);
     };
+    
 });
