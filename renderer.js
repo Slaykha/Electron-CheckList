@@ -46,6 +46,7 @@ const addNewListItemToDOM = (item) => {
 const addNewMainListItemToDOM = (item) => {
     console.log(item)
     let mainListItem = document.createElement("div");
+    mainListItem.id = `mainListItem-${item.id}`;
     mainListItem.className = "mainListItem";
     mainListItem.innerText = item.text;
 
@@ -54,6 +55,11 @@ const addNewMainListItemToDOM = (item) => {
 
 document.body.addEventListener( "click", event => {
     let idSplit = event.target.id.split("-");
+
+    if(idSplit[0] == "mainListItem"){
+        location.href="./checkList.html";
+    }
+
     if(idSplit[0] == "checkBox") {
         let id = idSplit[1];
         let checked = document.getElementById(event.target.id).checked;
