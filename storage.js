@@ -21,3 +21,9 @@ export const getMainListItemId = () => {
 export const deleteListItem = (key) => {
     store.delete(key);
 };
+
+export const getSingleCheckList = (id) => {
+    let item = store.get(id);
+
+    return item;
+}

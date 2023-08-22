@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
-    let loc = location.href.split("/").pop();
+    let loc = location.href.split("/").pop().split("?")[0];
     if(loc === "index.html"){
  
         let mainList = document.createElement("div");
@@ -18,12 +18,18 @@ window.addEventListener("DOMContentLoaded", () => {
     
         addMainListItem.appendChild(circle);
     
-    }
-    /*else if(loc === "checkList.html"){
+    }else if(loc === "checkList.html"){
+        let grid = document.createElement("div");
+        grid.className = "grid";
+
+        let sideMenu = document.createElement("div");
+        sideMenu.className = "sideMenu";
+
         let header = document.createElement("div");
-        header.className = "hader"
+        header.className = "header"
 
         let h1 = document.createElement("h1");
+        h1.id = "header-h1"
         h1.innerText = "CheckList";
 
         let headerDiv = document.createElement("div");
@@ -44,18 +50,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
         headerDiv.append(input, button);
         header.append(h1, headerDiv);
+
+        grid.append(header, sideMenu)
     
-        document.body.append(header, list);
-    };*/
+        document.body.append(grid, list);
+    };
 
     /*
-    <header>
-        <h1>CheckList</h1>
-        <div id="header-div">
-            <input id="header-input" type="text" id="checkItem" name="checkItem" placeholder="Please Enter an Item...">
-            <button id="create-button">Add to List</button>
+        <div class="grid">
+            <div class="sideMenu">
+                deneme
+            </div>
+            <div class="header">
+                <h1>CheckList</h1>
+                <div id="header-div">
+                    <input id="header-input" type="text" name="checkItem" placeholder="Please Enter an Item...">
+                    <button id="create-button">Add to List</button>
+                </div>
+            </div>
         </div>
-    </header>
     */
 });
 

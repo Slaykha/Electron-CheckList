@@ -1,4 +1,4 @@
-import { createMainListItem, deleteListItem, getCheckListItems, getMainListItemId } from "./storage.js";
+import { createMainListItem, getCheckListItems, getMainListItemId, getSingleCheckList } from "./storage.js";
 
 let createButton = document.getElementById("create-button");
 let mainList = document.getElementById("mainList");
@@ -44,7 +44,6 @@ const addNewListItemToDOM = (item) => {
 };
 
 const addNewMainListItemToDOM = (item) => {
-    console.log(item)
     let mainListItem = document.createElement("div");
     mainListItem.id = `mainListItem-${item.id}`;
     mainListItem.className = "mainListItem";
@@ -56,8 +55,9 @@ const addNewMainListItemToDOM = (item) => {
 document.body.addEventListener( "click", event => {
     let idSplit = event.target.id.split("-");
 
+    console.log(parseInt(idSplit[1]))
     if(idSplit[0] == "mainListItem"){
-        location.href="./checkList.html";
+        location.href=`./checkList.html?${idSplit[1]}`;
     }
 
     if(idSplit[0] == "checkBox") {
@@ -73,20 +73,27 @@ document.body.addEventListener( "click", event => {
 });
 
 window.addEventListener("DOMContentLoaded", () => {
-    mainList = document.getElementById("mainList");
-    addMainListItem = document.getElementById("addMainListItem");
+    let loc = location.href.split("/").pop().split("?");
 
-    addMainListItem.addEventListener("click", () => {
-        let newMainItem = {id: getMainListItemId(), text: "text", checkList:{}};
-    
-        createMainListItem(newMainItem);
-        addNewMainListItemToDOM(newMainItem);
-    });
+    if(loc[0] === "index.html"){
+        mainList = document.getElementById("mainList");
+        addMainListItem = document.getElementById("addMainListItem");
 
-    let items = getCheckListItems();
+        addMainListItem.addEventListener("click", () => {
+            let newMainItem = {id: getMainListItemId(), text: "text", checkList:{}};
+        
+            createMainListItem(newMainItem);
+            addNewMainListItemToDOM(newMainItem);
+        });
 
-    for (let key in items) {
-        addNewMainListItemToDOM(items[key]);
+        let items = getCheckListItems();
+
+        for (let key in items) {
+            addNewMainListItemToDOM(items[key]);
+        };
+    }else if(loc[0] === "checkList.html"){
+        let checkList = getSingleCheckList(loc[1]);
+        document.getElementById("header-h1").innerText = checkList.text;
+
     };
-    
 });
