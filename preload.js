@@ -18,8 +18,10 @@ window.addEventListener("DOMContentLoaded", () => {
     
         addMainListItem.appendChild(circle);
     
-    }else if(loc === "checkList.html"){
-        let header = document.createElement("header");
+    }
+    /*else if(loc === "checkList.html"){
+        let header = document.createElement("div");
+        header.className = "hader"
 
         let h1 = document.createElement("h1");
         h1.innerText = "CheckList";
@@ -44,7 +46,7 @@ window.addEventListener("DOMContentLoaded", () => {
         header.append(h1, headerDiv);
     
         document.body.append(header, list);
-    };
+    };*/
 
     /*
     <header>
