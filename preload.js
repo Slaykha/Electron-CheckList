@@ -24,6 +24,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         let sideMenu = document.createElement("div");
         sideMenu.className = "sideMenu";
+        sideMenu.id = "sideMenu";
 
         let header = document.createElement("div");
         header.className = "header"

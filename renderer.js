@@ -52,11 +52,23 @@ const addNewMainListItemToDOM = (item) => {
     mainList.appendChild(mainListItem);
 }
 
+const addSideMenuItemToDOM = (item, sideMenu) => {
+    let sideMenuItem = document.createElement("div");
+    sideMenuItem.id = `sideMenuItem-${item.id}`;
+    sideMenuItem.className = "sideMenuItem";
+    sideMenuItem.innerText = item.text;
+
+    sideMenu.appendChild(sideMenuItem);
+}
+
 document.body.addEventListener( "click", event => {
     let idSplit = event.target.id.split("-");
 
-    console.log(parseInt(idSplit[1]))
     if(idSplit[0] == "mainListItem"){
+        location.href=`./checkList.html?${idSplit[1]}`;
+    }
+
+    if(idSplit[0] == "sideMenuItem"){
         location.href=`./checkList.html?${idSplit[1]}`;
     }
 
@@ -80,7 +92,7 @@ window.addEventListener("DOMContentLoaded", () => {
         addMainListItem = document.getElementById("addMainListItem");
 
         addMainListItem.addEventListener("click", () => {
-            let newMainItem = {id: getMainListItemId(), text: "text", checkList:{}};
+            let newMainItem = {id: getMainListItemId(), text: "deneme", checkList:{}};
         
             createMainListItem(newMainItem);
             addNewMainListItemToDOM(newMainItem);
@@ -95,5 +107,12 @@ window.addEventListener("DOMContentLoaded", () => {
         let checkList = getSingleCheckList(loc[1]);
         document.getElementById("header-h1").innerText = checkList.text;
 
+        let sideMenu = document.getElementById("sideMenu");
+
+        let items = getCheckListItems();
+
+        for (let key in items) {
+            addSideMenuItemToDOM(items[key], sideMenu);
+        };
     };
 });
