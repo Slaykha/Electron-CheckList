@@ -26,6 +26,10 @@ window.addEventListener("DOMContentLoaded", () => {
         sideMenu.className = "sideMenu";
         sideMenu.id = "sideMenu";
 
+        let backButton = document.createElement("div");
+        backButton.id = "backButton";
+        backButton.innerText = "<";
+
         let header = document.createElement("div");
         header.className = "header"
 
@@ -51,8 +55,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
         headerDiv.append(input, button);
         header.append(h1, headerDiv);
+        sideMenu.appendChild(backButton);
 
-        grid.append(header, sideMenu)
+        grid.append(header, sideMenu);
     
         document.body.append(grid, list);
     };
@@ -60,7 +65,7 @@ window.addEventListener("DOMContentLoaded", () => {
     /*
         <div class="grid">
             <div class="sideMenu">
-                deneme
+                <div><</div>
             </div>
             <div class="header">
                 <h1>CheckList</h1>

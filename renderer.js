@@ -64,12 +64,16 @@ const addSideMenuItemToDOM = (item, sideMenu) => {
 document.body.addEventListener( "click", event => {
     let idSplit = event.target.id.split("-");
 
-    if(idSplit[0] == "mainListItem"){
+    if(idSplit[0] === "mainListItem"){
         location.href=`./checkList.html?${idSplit[1]}`;
-    }
+    };
 
-    if(idSplit[0] == "sideMenuItem"){
+    if(idSplit[0] === "sideMenuItem"){
         location.href=`./checkList.html?${idSplit[1]}`;
+    };
+
+    if(idSplit[0] === "backButton"){
+        location.href=`./index.html`;
     }
 
     if(idSplit[0] == "checkBox") {
