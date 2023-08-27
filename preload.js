@@ -28,7 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
         let backButton = document.createElement("div");
         backButton.id = "backButton";
-        backButton.innerText = "<";
+        backButton.innerText = "Go Back!";
 
         let header = document.createElement("div");
         header.className = "header"

@@ -172,4 +172,7 @@ button:hover{
     color: rgba(255, 255, 255, 0.75);
     font-size: xx-large;
     cursor: pointer;
+    background-color: #272829;
+    margin-bottom: 10px;
+    text-align: center;
 }
